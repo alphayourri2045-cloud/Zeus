@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZEUS - Glass Edition</title>
+
+  <style>
+    /* Background ak bèl koulè k ap melanje */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: radial-gradient(circle at top left, #002d62, #000b18);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Style Glassmorphism pou seksyon yo */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      color: #ffcc00;
+      text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+      letter-spacing: 5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+      border: 1px solid rgba(255, 204, 0, 0.3);
+    }
+
+    nav a:hover {
+      background: #ffcc00;
+      color: #002d62;
+      box-shadow: 0 0 15px #ffcc00;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Kat sèvis yo ak efè lumineux */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      border: 1px solid #ffcc00;
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.2);
+    }
+
+    .card h3 {
+      color: #ffcc00;
+      margin-top: 0;
+    }
+
+    .highlight-text {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Ti sèk lumyè nan background nan */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #ffcc00;
+      filter: blur(150px);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.15;
+    }
+  </style>
+</head>
+<body>
+
+<div class="blob" style="top: 10%; left: 10%;"></div>
+<div class="blob" style="bottom: 10%; right: 10%; background: #0056b3;"></div>
+
+<header>
+  <h1>ZEUS</h1>
+  <p style="color: #ffcc00; letter-spacing: 3px;">TECHNOLOGIE • ÉNERGIE • SÉCURITÉ</p>
+</header>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#about">Pourquoi nous?</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+  <div class="card-container">
+    <div class="card">
+      <h3>📸 Sécurité</h3>
+      <p>Installation de caméras de surveillance <span class="highlight-text">(CCTV)</span>.</p>
+    </div>
+    <div class="card">
+      <h3>📡 Starlink</h3>
+      <p>Installation, configuration et gestion de votre connexion haute vitesse.</p>
+    </div>
+    <div class="card">
+      <h3>☀️ Énergie Solaire</h3>
+      <p>Inverters et panneaux solaires pour une autonomie complète.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Électricité</h3>
+      <p>Électricité générale, maintenance et dépannage technique.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="glass-panel">
+    <h2 style="color: #ffcc00;">Pourquoi choisir ZEUS ?</h2>
+    <p>✓ Technicien qualifié et expérimenté</p>
+    <p>✓ Travail professionnel, rapide et sécurisé</p>
+    <p>✓ Matériel moderne et fiable</p>
+    <p>✓ Assistance ak swivi apre enstalasyon</p>
+  </div>
+</section>
+
+<section id="contact" style="text-align: center;">
+  <div class="glass-panel">
+    <h2>Contactez Charles Yourri</h2>
+    <p>📍 Gran Rue, Fort-Barrile</p>
+    <p class="highlight-text" style="font-size: 1.5rem;">📞 +509 4476-9417</p>
+    <p>Email: alphayourri2045@gmail.com</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ZEUS - Tout dwa rezève. Garanti ak Sekirite.</p>
+</footer>
+
+</body>
+</html>
