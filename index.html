@@ -14,52 +14,19 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background-color: var(--dark-blue);
-            background-image: linear-gradient(135deg, #0a1931 0%, #162a4d 100%);
             color: var(--white);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            width: 100%;
-        }
+        header { text-align: center; padding: 40px 20px; }
+        .logo-text { font-size: 80px; font-weight: 900; color: var(--bright-yellow); margin: 0; text-transform: uppercase; }
+        .slogan { font-style: italic; opacity: 0.9; margin-top: -10px; }
 
-        .logo-text {
-            font-size: 80px;
-            font-weight: 900;
-            color: var(--bright-yellow);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-
-        .slogan {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-top: -10px;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 900px;
-            width: 90%;
-            margin-bottom: 50px;
-        }
-
-        h2.section-title {
-            color: var(--bright-yellow);
-            text-transform: uppercase;
-            border-left: 5px solid var(--bright-yellow);
-            padding-left: 15px;
-            margin-bottom: 30px;
-        }
+        .container { max-width: 900px; width: 90%; margin-bottom: 50px; }
+        .section-title { color: var(--bright-yellow); text-transform: uppercase; border-left: 5px solid var(--bright-yellow); padding-left: 15px; margin-bottom: 25px; }
 
         .services-grid {
             display: grid;
@@ -73,80 +40,50 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
+            display: flex; align-items: center;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .service-card:hover {
-            background: rgba(255, 204, 0, 0.1);
-            transform: translateY(-5px);
-            border-color: var(--bright-yellow);
+        .service-card:hover { background: rgba(255, 204, 0, 0.2); transform: translateY(-5px); border-color: var(--bright-yellow); }
+        .service-card i { font-size: 24px; color: var(--bright-yellow); margin-right: 15px; min-width: 30px; text-align: center; }
+
+        /* --- STIL POU MODAL LA --- */
+        .modal {
+            display: none; 
+            position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
         }
 
-        .service-card i {
-            font-size: 24px;
-            color: var(--bright-yellow);
-            margin-right: 15px;
-            width: 40px;
-            text-align: center;
+        .modal-content {
+            background-color: #0d1f3d;
+            margin: 10% auto; padding: 30px;
+            border: 2px solid var(--bright-yellow);
+            width: 85%; max-width: 550px;
+            border-radius: 20px;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
         }
 
-        .contact-section {
-            background: var(--bright-yellow);
-            color: var(--dark-blue);
-            width: 100%;
-            padding: 40px 0;
-            margin-top: 50px;
+        @keyframes slideIn { from {transform: translateY(-30px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+        .close-btn {
+            position: absolute; right: 20px; top: 15px;
+            font-size: 35px; color: var(--bright-yellow); cursor: pointer;
         }
 
-        .contact-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 0 20px;
+        .modal-content h2 { color: var(--bright-yellow); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .modal-content ul { padding-left: 20px; line-height: 1.8; list-style-type: "✔ "; }
+        .modal-content ul li { margin-bottom: 8px; }
+        .objektif { 
+            background: rgba(255, 204, 0, 0.1); 
+            padding: 10px; border-radius: 8px; 
+            margin-top: 20px; font-weight: bold; border-left: 4px solid var(--bright-yellow);
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-            font-weight: bold;
-        }
-
-        .info-box {
-            margin-top: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .info-item i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            background: #000;
-            width: 100%;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            .logo-text { font-size: 50px; }
-            .contact-container { text-align: center; flex-direction: column; }
-        }
+        footer { background: #000; width: 100%; text-align: center; padding: 25px 0; margin-top: 50px; border-top: 1px solid var(--glass); }
     </style>
 </head>
 <body>
@@ -159,39 +96,119 @@
     <div class="container">
         <h2 class="section-title">Nos Services</h2>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-solar-panel"></i> <span>INSTALLATION SOLAIRE</span></div>
-            <div class="service-card"><i class="fas fa-video"></i> <span>CAMÉRA SURVEILLANCE</span></div>
-            <div class="service-card"><i class="fas fa-network-wired"></i> <span>RÉSEAU & NVR</span></div>
-            <div class="service-card"><i class="fas fa-bolt"></i> <span>MAINTENANCE ÉLECTRIQUE</span></div>
-            <div class="service-card"><i class="fas fa-headset"></i> <span>SUPPORT TECHNIQUE</span></div>
-            <div class="service-card"><i class="fas fa-satellite-dish"></i> <span>STARLINK INSTALLATION & GESTION</span></div>
+            <div class="service-card" onclick="showDetails('solaire')">
+                <i class="fas fa-solar-panel"></i> <span>INSTALLATION SOLAIRE</span>
+            </div>
+            <div class="service-card" onclick="showDetails('camera')">
+                <i class="fas fa-video"></i> <span>CAMÉRA SURVEILLANCE</span>
+            </div>
+            <div class="service-card" onclick="showDetails('reseau')">
+                <i class="fas fa-network-wired"></i> <span>RÉSEAU & NVR</span>
+            </div>
+            <div class="service-card" onclick="showDetails('electricite')">
+                <i class="fas fa-bolt"></i> <span>MAINTENANCE ÉLECTRIQUE</span>
+            </div>
+            <div class="service-card" onclick="showDetails('support')">
+                <i class="fas fa-headset"></i> <span>SUPPORT TECHNIQUE</span>
+            </div>
+            <div class="service-card" onclick="showDetails('starlink')">
+                <i class="fas fa-satellite-dish"></i> <span>STARLINK INSTALLATION & GESTION</span>
+            </div>
         </div>
     </div>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>YOURRI CHARLES</h3>
-                <p>TECHNICIEN / INSTALLATION & MAINTENANCE</p>
-                
-                <div class="info-box">
-                    <div class="info-item"><i class="fas fa-phone"></i> +509 4476-9417</div>
-                    <div class="info-item"><i class="fab fa-whatsapp"></i> +509 4476-9417</div>
-                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> Jacmel, Haïti</div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <p style="margin-bottom: 10px;">POUR ME CONTACTER<br>VIA WHATSAPP</p>
-                <i class="fab fa-whatsapp" style="font-size: 80px;"></i>
-            </div>
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <i class="fas fa-envelope"></i> EMAIL: ALPHAYOURRI2045@GMAIL.COM
-        <br><br>
+        <i class="fas fa-envelope"></i> EMAIL: ALPHAYOURRI2045@GMAIL.COM<br><br>
         &copy; 2026 ZEUS - Tout dwa rezève.
     </footer>
 
+    <script>
+        function showDetails(service) {
+            const modal = document.getElementById('detailsModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            let content = "";
+            let headerTitle = "";
+
+            switch(service) {
+                case 'electricite':
+                    headerTitle = "⚡ Maintenance Électrique";
+                    content = `
+                        <ul>
+                            <li>Depanaj pann kouran (kay / biznis)</li>
+                            <li>Chanjman disjoncteur, prise, switch</li>
+                            <li>Reparasyon sikwi elektrik</li>
+                            <li>Verifikasyon sekirite enstalasyon yo</li>
+                            <li>Entretien tablo elektrik (breaker panel)</li>
+                            <li>Dyagnostik surchof oswa kout sikwi</li>
+                        </ul>
+                        <div class="objektif">👉 Objektif: kenbe sistèm elektrik la an sekirite e stab</div>
+                    `;
+                    break;
+                case 'support':
+                    headerTitle = "🛠️ Support Technique";
+                    content = `
+                        <ul>
+                            <li>Depanaj kamera (CCTV / NVR)</li>
+                            <li>Rekoneksyon sistèm entènèt / routeur</li>
+                            <li>Configurations aparèy (TV box, DVR, etc.)</li>
+                            <li>Asistans remote (pa telefòn oswa WhatsApp)</li>
+                            <li>Reparasyon sistèm ki pa fonksyone</li>
+                            <li>Suivi ak konsèy teknik</li>
+                        </ul>
+                        <div class="objektif">👉 Objektif: ede kliyan rezoud pwoblèm teknik rapid</div>
+                    `;
+                    break;
+                case 'starlink':
+                    headerTitle = "📡 Starlink Installation";
+                    content = `
+                        <ul>
+                            <li>Enstalasyon parabòl Starlink</li>
+                            <li>Konfigirasyon entènèt WiFi</li>
+                            <li>Optimisation signal (meilleure vitès)</li>
+                            <li>Fixation ak oryantasyon antèn</li>
+                            <li>Gestion rezo lakay oswa biwo</li>
+                            <li>Depanaj koneksyon Starlink</li>
+                        </ul>
+                        <div class="objektif">🚀 Objektif: garanti yon koneksyon entènèt rapid e stab</div>
+                    `;
+                    break;
+                case 'solaire':
+                    headerTitle = "☀️ Installation Solaire";
+                    content = `<ul><li>Enstalasyon Panèl Solè</li><li>Konfigirasyon Inverter & Batri</li><li>Maintenance sistèm enèji</li></ul>`;
+                    break;
+                case 'camera':
+                    headerTitle = "📹 Caméra Surveillance";
+                    content = `<ul><li>Enstalasyon kamera IP/Analogik</li><li>Konfigirasyon remote (Telefòn)</li><li>Sekirite 24/7</li></ul>`;
+                    break;
+                case 'reseau':
+                    headerTitle = "🌐 Réseau & NVR";
+                    content = `<ul><li>Kablaj rezo pwofesyonèl</li><li>Enstalasyon switch ak router</li><li>Konfigirasyon NVR pou sekirite</li></ul>`;
+                    break;
+            }
+
+            title.innerHTML = headerTitle;
+            body.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailsModal');
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+    </script>
 </body>
 </html>
