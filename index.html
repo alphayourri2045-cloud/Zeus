@@ -1,192 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZEUS - Glass Edition</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeus - Solutions Intelligentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-blue: #0a1931;
+            --bright-yellow: #ffcc00;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
 
-  <style>
-    /* Background ak bèl koulè k ap melanje */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: radial-gradient(circle at top left, #002d62, #000b18);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-blue);
+            background-image: linear-gradient(135deg, #0a1931 0%, #162a4d 100%);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    /* Style Glassmorphism pou seksyon yo */
-    .glass-panel {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-      padding: 30px;
-      margin-bottom: 30px;
-    }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+        }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-    }
+        .logo-text {
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--bright-yellow);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
 
-    h1 {
-      font-size: 4rem;
-      margin: 0;
-      color: #ffcc00;
-      text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
-      letter-spacing: 5px;
-    }
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: -10px;
+            opacity: 0.9;
+        }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin-bottom: 50px;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      transition: 0.3s;
-      border: 1px solid rgba(255, 204, 0, 0.3);
-    }
+        h2.section-title {
+            color: var(--bright-yellow);
+            text-transform: uppercase;
+            border-left: 5px solid var(--bright-yellow);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
 
-    nav a:hover {
-      background: #ffcc00;
-      color: #002d62;
-      box-shadow: 0 0 15px #ffcc00;
-    }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+        .service-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
 
-    /* Kat sèvis yo ak efè lumineux */
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+        .service-card:hover {
+            background: rgba(255, 204, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--bright-yellow);
+        }
 
-    .card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
+        .service-card i {
+            font-size: 24px;
+            color: var(--bright-yellow);
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
 
-    .card:hover {
-      border: 1px solid #ffcc00;
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px rgba(255, 204, 0, 0.2);
-    }
+        .contact-section {
+            background: var(--bright-yellow);
+            color: var(--dark-blue);
+            width: 100%;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
 
-    .card h3 {
-      color: #ffcc00;
-      margin-top: 0;
-    }
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
 
-    .highlight-text {
-      color: #ffcc00;
-      font-weight: bold;
-    }
+        .contact-info h3 {
+            font-size: 2rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-    footer {
-      text-align: center;
-      padding: 50px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
+        .contact-info p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
 
-    /* Ti sèk lumyè nan background nan */
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: #ffcc00;
-      filter: blur(150px);
-      border-radius: 50%;
-      z-index: -1;
-      opacity: 0.15;
-    }
-  </style>
+        .info-box {
+            margin-top: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .info-item i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: #000;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .logo-text { font-size: 50px; }
+            .contact-container { text-align: center; flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="blob" style="top: 10%; left: 10%;"></div>
-<div class="blob" style="bottom: 10%; right: 10%; background: #0056b3;"></div>
+    <header>
+        <h1 class="logo-text">Zeus</h1>
+        <p class="slogan">Solutions intelligentes & énergie fiable</p>
+    </header>
 
-<header>
-  <h1>ZEUS</h1>
-  <p style="color: #ffcc00; letter-spacing: 3px;">TECHNOLOGIE • ÉNERGIE • SÉCURITÉ</p>
-</header>
-
-<nav>
-  <a href="#services">Services</a>
-  <a href="#about">Pourquoi nous?</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="services">
-  <div class="card-container">
-    <div class="card">
-      <h3>📸 Sécurité</h3>
-      <p>Installation de caméras de surveillance <span class="highlight-text">(CCTV)</span>.</p>
+    <div class="container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-solar-panel"></i> <span>INSTALLATION SOLAIRE</span></div>
+            <div class="service-card"><i class="fas fa-video"></i> <span>CAMÉRA SURVEILLANCE</span></div>
+            <div class="service-card"><i class="fas fa-network-wired"></i> <span>RÉSEAU & NVR</span></div>
+            <div class="service-card"><i class="fas fa-bolt"></i> <span>MAINTENANCE ÉLECTRIQUE</span></div>
+            <div class="service-card"><i class="fas fa-headset"></i> <span>SUPPORT TECHNIQUE</span></div>
+            <div class="service-card"><i class="fas fa-satellite-dish"></i> <span>STARLINK INSTALLATION & GESTION</span></div>
+        </div>
     </div>
-    <div class="card">
-      <h3>📡 Starlink</h3>
-      <p>Installation, configuration et gestion de votre connexion haute vitesse.</p>
-    </div>
-    <div class="card">
-      <h3>☀️ Énergie Solaire</h3>
-      <p>Inverters et panneaux solaires pour une autonomie complète.</p>
-    </div>
-    <div class="card">
-      <h3>⚡ Électricité</h3>
-      <p>Électricité générale, maintenance et dépannage technique.</p>
-    </div>
-  </div>
-</section>
 
-<section id="about">
-  <div class="glass-panel">
-    <h2 style="color: #ffcc00;">Pourquoi choisir ZEUS ?</h2>
-    <p>✓ Technicien qualifié et expérimenté</p>
-    <p>✓ Travail professionnel, rapide et sécurisé</p>
-    <p>✓ Matériel moderne et fiable</p>
-    <p>✓ Assistance ak swivi apre enstalasyon</p>
-  </div>
-</section>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>YOURRI CHARLES</h3>
+                <p>TECHNICIEN / INSTALLATION & MAINTENANCE</p>
+                
+                <div class="info-box">
+                    <div class="info-item"><i class="fas fa-phone"></i> +509 4476-9417</div>
+                    <div class="info-item"><i class="fab fa-whatsapp"></i> +509 4476-9417</div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> Jacmel, Haïti</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="margin-bottom: 10px;">POUR ME CONTACTER<br>VIA WHATSAPP</p>
+                <i class="fab fa-whatsapp" style="font-size: 80px;"></i>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" style="text-align: center;">
-  <div class="glass-panel">
-    <h2>Contactez Charles Yourri</h2>
-    <p>📍 Gran Rue, Fort-Barrile</p>
-    <p class="highlight-text" style="font-size: 1.5rem;">📞 +509 4476-9417</p>
-    <p>Email: alphayourri2045@gmail.com</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 ZEUS - Tout dwa rezève. Garanti ak Sekirite.</p>
-</footer>
+    <footer>
+        <i class="fas fa-envelope"></i> EMAIL: ALPHAYOURRI2045@GMAIL.COM
+        <br><br>
+        &copy; 2026 ZEUS - Tout dwa rezève.
+    </footer>
 
 </body>
 </html>
